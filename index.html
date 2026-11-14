@@ -1,72 +1,145 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+
+    <title>Image Editor</title>
 </head>
 <body>
+
     <div class="container">
-        <div class="img">
-            <div class="img-box">
-                <img  id="img">
-                <canvas id="canvas"></canvas>
-            </div>
-            <div class="upload">
-                <label for="upload">upload</label>
-                <input type="file" id="upload">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">✦</span>
+                <h2>Pixel<span>Lab</span></h2>
             </div>
 
-            
+            <p>Creative Image Editor</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="editor">
+
+            <!-- Image Section -->
+            <div class="img">
+
+                <div class="section-title">
+                    <h3>Preview Image</h3>
+                    <span>EDIT YOUR PHOTO</span>
+                </div>
+
+                <div class="img-box">
+                    <img id="img">
+                    <canvas id="canvas"></canvas>
+                </div>
+
+                <div class="upload">
+                    <label for="upload">
+                        <span>＋</span> Upload Image
+                    </label>
+                    <input type="file" id="upload" accept="image/*">
+                </div>
+
+                <p class="upload-info">Choose an image from your device</p>
+
+            </div>
+
+            <!-- Filters Section -->
+            <div class="filters">
+
+                <div class="filters-header">
+                    <div>
+                        <h3>Adjustments</h3>
+                        <p>Customize your image</p>
+                    </div>
+                    <span class="filter-icon">⚙</span>
+                </div>
+
+                <ul>
+
+                    <li>
+                        <label for="saturate">Saturation</label>
+                        <input type="range" id="saturate"
+                        min="0" max="200" value="100">
+                    </li>
+
+                    <li>
+                        <label for="contrast">Contrast</label>
+                        <input type="range" id="contrast"
+                        min="0" max="200" value="100">
+                    </li>
+
+                    <li>
+                        <label for="brightness">Brightness</label>
+                        <input type="range" id="brightness"
+                        min="0" max="200" value="100">
+                    </li>
+
+                    <li>
+                        <label for="sepia">Sepia</label>
+                        <input type="range" id="sepia"
+                        min="0" max="200" value="0">
+                    </li>
+
+                    <li>
+                        <label for="grayscale">Grayscale</label>
+                        <input type="range" id="grayscale"
+                        step="0.1" min="0" max="1" value="0">
+                    </li>
+
+                    <li>
+                        <label for="blur">Blur</label>
+                        <input type="range" id="blur"
+                        step="0.1" min="0" max="10" value="0">
+                    </li>
+
+                    <li>
+                        <label for="hue-rotate">Hue Rotate</label>
+                        <input type="range" id="hue-rotate"
+                        min="0" max="350" value="0">
+                    </li>
+
+                    <li>
+                        <label for="invert">Invert</label>
+                        <input type="range" id="invert"
+                        min="0" max="1" step="0.1" value="0">
+                    </li>
+
+                    <li>
+                        <label for="opacity">Opacity</label>
+                        <input type="range" id="opacity"
+                        min="0" max="1" step="0.1" value="1">
+                    </li>
+
+                    <li class="actions">
+                        <a download="image" id="download">
+                            ↓ Download
+                        </a>
+
+                        <span onclick="resetValue()">
+                            ↻ Reset
+                        </span>
+                    </li>
+
+                </ul>
+
+            </div>
+
         </div>
 
-        <div class="filters">
-            <ul>
-                <li>
-                    <label for="saturate">saturate</label>
-                    <input type="range" id="saturate" min="0" max="200" value="100">
-                </li>
-                <li>
-                    <label for="contrast">contrast</label>
-                    <input type="range" id="contrast" min="0" max="200" value="100">
-                </li>
-                <li>
-                    <label for="brightness">brightnesst</label>
-                    <input type="range" id="brightness" min="0" max="200" value="100">
-                </li>
-                <li>
-                    <label for="sepia">sepia</label>
-                    <input type="range" id="sepia" min="0" max="200" value="0">
-                </li>
-                <li>
-                    <label for="grayscale">grayscale</label>
-                    <input type="range" id="grayscale" step="0.1" min="0" max="1" value="0">
-                </li>
-                <li>
-                    <label for="blur">blur</label>
-                    <input type="range" id="blur" step="0.1" min="0" max="10" value="0">
-                </li>
-                 <li>
-                    <label for="hue-rotate">Hue Rotate</label>
-                    <input type="range" id="hue-rotate"  min="0" max="350" value="0">
-                </li>
-                <li>
-                    <label for="invert">invert</label>
-                    <input type="range" id="invert" min="0" max="1" step="0.1" value="0">
-                </li>
+        <footer>
+            <p>Made with ♥ by <span>PixelLab</span></p>
+        </footer>
 
-                <li>
-                   <label for="opacity">opacity</label>
-                   <input type="range" id="opacity" min="0" max="1" step="0.1" value="1">
-                </li>
-                <li>
-                    <a download="image" id="download" > Download</a>
-                    <span onclick="resetValue()">Reset</span>
-                </li>
-            </ul>
-        </div>
     </div>
+
     <script src="main.js"></script>
+
 </body>
 </html>
